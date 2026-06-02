@@ -6,8 +6,47 @@
   <title>Faizan Quazi | UX Analyst</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    /* Extra styles for denser home grid */
+    .home-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 0 6rem;
+    }
+    .home-grid .card {
+      min-height: 220px;
+    }
+    .home-grid .large {
+      grid-column: span 2;
+      min-height: 320px;
+    }
+    .home-grid .medium {
+      grid-column: span 1;
+    }
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.75rem;
+    }
+    .preview-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      color: #222;
+      transition: all 0.3s;
+    }
+    .preview-link:hover {
+      gap: 0.75rem;
+    }
+  </style>
 </head>
 <body>
+  <!-- Navigation -->
   <nav>
     <div class="container nav-content">
       <div class="logo">Faizan Quazi</div>
@@ -21,58 +60,120 @@
   </nav>
 
   <div class="container">
-    <div class="text-center pt-16 pb-12">
-      <img src="https://via.placeholder.com/300" alt="Faizan Quazi" class="profile-img mx-auto mb-6">
-      <h1 class="text-5xl font-semibold tracking-tighter">Faizan Quazi</h1>
-      <p class="mt-2 text-2xl text-gray-600">User Experience Analyst</p>
-      <p class="mt-6 max-w-md mx-auto text-gray-500">
-        Crafting meaningful digital experiences through research-driven design.
-      </p>
+    <!-- Hero / Intro (kept minimal) -->
+    <div class="text-center pt-14 pb-8">
+      <img src="assets/profile.jpg" alt="Faizan Quazi" class="profile-img mx-auto mb-6">
+      <h1 class="text-6xl font-semibold tracking-tighter">Faizan Quazi</h1>
+      <p class="mt-3 text-2xl text-gray-600">User Experience Analyst</p>
     </div>
 
-    <div class="bento-grid">
+    <!-- BIG SCROLLING BENTO WALL -->
+    <div class="home-grid">
+
+      <!-- Large Intro Card -->
       <div class="card large">
-        <h2 class="text-3xl font-semibold mb-6">Building better B2B experiences at HCL Commerce.</h2>
-        <p class="text-lg text-gray-600">
-          Passionate about user research, information architecture, and turning complex problems into intuitive interfaces.
-        </p>
+        <div class="section-label">Hello</div>
+        <h2 class="text-4xl font-semibold leading-tight mb-6">I design meaningful digital experiences through research and clarity.</h2>
+        <p class="text-gray-600">Currently improving B2B usability at HCL Commerce.</p>
       </div>
 
+      <!-- About Preview -->
       <div class="card">
-        <h3 class="font-medium text-lg mb-4">Current Role</h3>
-        <p class="text-gray-600">User Experience Analyst @ HCL Software (Commerce)</p>
-        <p class="text-sm text-gray-500 mt-1">Dec 2022 — Present</p>
+        <div class="section-label">About</div>
+        <h3 class="text-2xl font-semibold mb-3">8+ years in UX</h3>
+        <p class="text-gray-600 mb-6">User research, information architecture, wireframing, prototyping, and usability testing.</p>
+        <a href="about.html" class="preview-link">Explore my journey →</a>
       </div>
 
+      <!-- Current Role -->
       <div class="card">
-        <h3 class="font-medium text-lg mb-4">Based in</h3>
-        <p class="text-gray-600">Pune, India</p>
+        <div class="section-label">Now</div>
+        <h3 class="text-xl font-semibold mb-2">User Experience Analyst</h3>
+        <p class="text-gray-600">HCL Software (Commerce)<br>Dec 2022 — Present</p>
+        <p class="mt-4 text-sm text-gray-500">Solving enterprise B2B usability challenges</p>
       </div>
 
+      <!-- Work Preview 1 -->
       <div class="card">
-        <h3 class="font-medium text-lg mb-4">Connect</h3>
-        <div class="flex flex-col gap-3 text-lg">
-          <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="hover:text-blue-600 transition">LinkedIn →</a>
-          <a href="mailto:faizanquazi123@gmail.com" class="hover:text-gray-900 transition">Email →</a>
+        <div class="section-label">Work</div>
+        <h3 class="text-xl font-semibold mb-3">Sr. Product Designer</h3>
+        <p class="text-gray-600">Cybage Softwares • 2021–2022</p>
+        <p class="mt-3 text-sm">Led user research, personas, wireframes &amp; usability testing using UCD process.</p>
+        <a href="projects.html" class="preview-link">See full experience →</a>
+      </div>
+
+      <!-- Work Preview 2 -->
+      <div class="card">
+        <div class="section-label">Work</div>
+        <h3 class="text-xl font-semibold mb-3">UX Designer</h3>
+        <p class="text-gray-600">HCL Software (UNICA) • 2018–2021</p>
+        <p class="mt-3 text-sm">Marketing automation platform. Research, card sorting, prototypes &amp; stakeholder collaboration.</p>
+        <a href="projects.html" class="preview-link">View all roles →</a>
+      </div>
+
+      <!-- Image / Visual Card -->
+      <div class="card" style="background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%); display: flex; align-items: center; justify-content: center; flex-direction: column;">
+        <i class="fa-solid fa-palette text-5xl text-gray-300 mb-4"></i>
+        <p class="text-center text-gray-500">Design is not just what it looks like.<br>It’s how it works.</p>
+      </div>
+
+      <!-- Skills / Expertise -->
+      <div class="card">
+        <div class="section-label">Expertise</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-4 py-1.5 bg-white border border-gray-200 rounded-full text-sm">User Research</span>
+          <span class="px-4 py-1.5 bg-white border border-gray-200 rounded-full text-sm">Information Architecture</span>
+          <span class="px-4 py-1.5 bg-white border border-gray-200 rounded-full text-sm">Wireframing</span>
+          <span class="px-4 py-1.5 bg-white border border-gray-200 rounded-full text-sm">Prototyping</span>
+          <span class="px-4 py-1.5 bg-white border border-gray-200 rounded-full text-sm">Usability Testing</span>
+          <span class="px-4 py-1.5 bg-white border border-gray-200 rounded-full text-sm">Journey Mapping</span>
         </div>
       </div>
 
+      <!-- Education Snapshot -->
       <div class="card">
-        <h3 class="font-medium text-lg mb-4">Latest Focus</h3>
-        <p class="text-gray-600">Improving B2B usability in Commerce platforms</p>
+        <div class="section-label">Education</div>
+        <div class="space-y-3 text-sm">
+          <div><strong>Bachelors in Arts</strong> — 2023</div>
+          <div><strong>UX Certificate</strong> — Felix Institute, 2017</div>
+          <div><strong>Diploma in Journalism &amp; Mass Media</strong> — 2016</div>
+        </div>
+        <a href="about.html" class="preview-link text-sm mt-4">Full education →</a>
       </div>
+
+      <!-- Contact Preview -->
+      <div class="card">
+        <div class="section-label">Connect</div>
+        <h3 class="text-2xl font-semibold mb-4">Let’s talk.</h3>
+        <div class="space-y-2 text-lg">
+          <a href="mailto:faizanquazi123@gmail.com" class="block hover:text-blue-600">faizanquazi123@gmail.com</a>
+          <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="block hover:text-blue-600">LinkedIn</a>
+          <a href="tel:+918446556866" class="block hover:text-blue-600">+91 84465 56866</a>
+        </div>
+        <a href="contact.html" class="preview-link mt-6">Go to contact page →</a>
+      </div>
+
+      <!-- Final CTA Card -->
+      <div class="card" style="background: #111; color: white; display: flex; flex-direction: column; justify-content: center;">
+        <h3 class="text-3xl font-semibold mb-4">Ready to collaborate?</h3>
+        <a href="contact.html" class="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold w-fit hover:bg-gray-200 transition">Get in touch →</a>
+      </div>
+
     </div>
   </div>
 
   <script>
+    // Scroll animation for all cards
     const cards = document.querySelectorAll('.card');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 60);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
 
     cards.forEach(card => observer.observe(card));
   </script>
