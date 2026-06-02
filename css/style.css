@@ -4,16 +4,11 @@
 
 body { font-family:'Inter', system-ui, sans-serif; background:#fff; color:#1a1a1a; }
 
-/* Cards */
 .card { background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem; transition:all .4s ease; }
 .card:hover { border-color:#ccc; transform:translateY(-6px); box-shadow:0 20px 25px -5px rgb(0 0 0 / 0.06); }
 
-/* Responsive improvements */
 @media (max-width: 768px) {
   .card { padding:1.5rem; }
-  h1 { font-size:2.6rem !important; }
-  h2 { font-size:2rem !important; }
-  .reel-content p { font-size:1rem !important; }
 }
 
 @media (min-width: 1025px) {
