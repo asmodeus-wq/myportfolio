@@ -4,8 +4,8 @@
 
 body { font-family:'Inter', system-ui, sans-serif; background:#fff; color:#1a1a1a; }
 
-.card { background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem; transition:all .4s ease; }
-.card:hover { border-color:#ccc; transform:translateY(-8px); box-shadow:0 20px 25px -5px rgb(0 0 0 / 0.06); }
+.card { background:#fafafa; border:1px solid #e5e5e5; border-radius:18px; padding:1.85rem; transition:all .4s ease; }
+.card:hover { border-color:#ccc; transform:translateY(-6px); box-shadow:0 15px 25px -8px rgb(0 0 0 / 0.06); }
 
 @media (max-width: 768px) {
   .card { padding:1.5rem; }
