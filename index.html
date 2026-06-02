@@ -6,11 +6,55 @@
   <title>Faizan Quazi | UX Analyst</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body {
+      overflow: hidden;
+    }
+    .reel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100dvh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: #fff;
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+    }
+    .reel.active {
+      display: flex;
+    }
+    .reel.flipping-out {
+      animation: flipOut 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+      z-index: 10;
+    }
+    .reel.flipping-in {
+      animation: flipIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+      z-index: 20;
+    }
+    @keyframes flipOut {
+      from { transform: rotateX(0deg) translateY(0); opacity: 1; }
+      to { transform: rotateX(-55deg) translateY(-80px); opacity: 0; }
+    }
+    @keyframes flipIn {
+      from { transform: rotateX(55deg) translateY(80px); opacity: 0; }
+      to { transform: rotateX(0deg) translateY(0); opacity: 1; }
+    }
+    .reel-content {
+      width: 100%;
+      max-width: 1100px;
+      padding: 0 2rem;
+    }
+  </style>
 </head>
-<body style="scroll-snap-type: y mandatory;">
+<body>
 
-  <nav>
-    <div class="nav-content">
+  <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid #f0f0f0;">
+    <div class="nav-content" style="max-width: 1100px; margin: 0 auto; padding: 1.1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
       <div class="logo">Faizan Quazi</div>
       <div class="nav-links">
         <a href="about.html">About</a>
@@ -20,19 +64,17 @@
     </div>
   </nav>
 
-  <!-- REEL 1 -->
-  <section class="reel" id="reel1" style="background: #f8f8f8;">
+  <!-- REEL 1: Hero -->
+  <section class="reel active" id="reel1" style="background: #f8f8f8;">
     <div class="reel-content text-center">
-      <img src="assets/profile.jpg" alt="Faizan Quazi" class="profile-img mx-auto mb-8">
+      <img src="assets/profile.jpg" alt="Faizan Quazi" class="profile-img mx-auto mb-8" style="width:130px; height:130px; border-radius:9999px; object-fit:cover; border:6px solid #fff; box-shadow:0 15px 30px -10px rgb(0 0 0 / 0.12);">
       <h1 class="font-semibold tracking-tighter mb-3" style="font-size: 3.8rem;">Faizan Quazi</h1>
       <p class="text-3xl text-gray-600 mb-8">User Experience Analyst</p>
       <p class="max-w-md mx-auto text-xl text-gray-600">
         Creating meaningful digital experiences through research and thoughtful design.
       </p>
       <div class="mt-14">
-        <a href="#reel2" class="inline-flex items-center gap-3 text-lg font-medium hover:text-blue-600 transition">
-          Scroll to begin <i class="fa-solid fa-arrow-down"></i>
-        </a>
+        <p style="color:#888; font-size:0.95rem;">Scroll to flip to next chapter ↓</p>
       </div>
     </div>
   </section>
@@ -45,13 +87,13 @@
         <h2 class="font-semibold mt-3" style="font-size: 2.6rem;">Who I am</h2>
       </div>
 
-      <div class="bento-grid">
-        <div class="card large">
+      <div class="bento-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem;">
+        <div class="card large" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem; grid-column:span 2;">
           <h3 class="text-3xl font-semibold leading-tight mb-6">8+ years of experience in user-centered design and research.</h3>
           <p class="text-lg text-gray-600">Currently improving B2B usability across HCL Commerce platforms.</p>
         </div>
 
-        <div class="card">
+        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
           <h4 class="font-semibold mb-4 text-lg">Core Expertise</h4>
           <div class="flex flex-wrap gap-2">
             <span class="px-4 py-1 bg-white border rounded-full text-sm">User Research</span>
@@ -62,7 +104,7 @@
           </div>
         </div>
 
-        <div class="card">
+        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
           <h4 class="font-semibold mb-4 text-lg">Education</h4>
           <div class="space-y-4 text-sm">
             <div><strong>Bachelor of Arts</strong> — 2023</div>
@@ -83,8 +125,8 @@
         <h2 class="font-semibold mt-3" style="font-size: 2.6rem;">Experience</h2>
       </div>
 
-      <div class="bento-grid">
-        <div class="card large">
+      <div class="bento-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem;">
+        <div class="card large" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem; grid-column:span 2;">
           <div class="flex justify-between items-start mb-5">
             <div>
               <h3 class="text-2xl font-semibold">User Experience Analyst</h3>
@@ -95,25 +137,25 @@
           <p class="text-gray-600">Leading B2B usability improvements across the HCL Commerce software suite.</p>
         </div>
 
-        <div class="card">
+        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
           <h3 class="font-semibold mb-1">Sr. Product Designer / Researcher</h3>
           <p class="text-gray-600 text-sm mb-3">Cybage Softwares • May 2021 – Dec 2022</p>
           <p class="text-sm text-gray-500">User interviews, research, personas, wireframes, prototypes &amp; usability testing.</p>
         </div>
 
-        <div class="card">
+        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
           <h3 class="font-semibold mb-1">User Experience Designer</h3>
           <p class="text-gray-600 text-sm mb-3">HCL Software (UNICA) • 2018 – 2021</p>
           <p class="text-sm text-gray-500">Marketing automation platform. Research, IA, card sorting &amp; design annotations.</p>
         </div>
 
-        <div class="card">
+        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
           <h3 class="font-semibold mb-1">UI/UX Designer</h3>
           <p class="text-gray-600 text-sm mb-3">BrightBrain Technologies • 2018</p>
           <p class="text-sm text-gray-500">User research, task flows, concept testing &amp; client pitching.</p>
         </div>
 
-        <div class="card flex items-center justify-center text-center">
+        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem; display:flex; align-items:center; justify-content:center; text-align:center;">
           <a href="projects.html" class="text-xl font-semibold hover:text-blue-600 transition">View complete work history →</a>
         </div>
       </div>
@@ -128,23 +170,23 @@
         <h2 class="font-semibold mt-3" style="font-size: 2.6rem;">Let’s talk</h2>
       </div>
 
-      <div class="bento-grid max-w-4xl mx-auto">
-        <div class="card">
+      <div class="bento-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; max-width:900px; margin:0 auto;">
+        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
           <h3 class="font-semibold text-xl mb-3">Email</h3>
           <a href="mailto:faizanquazi123@gmail.com" class="text-2xl font-medium hover:text-blue-600 transition">faizanquazi123@gmail.com</a>
         </div>
 
-        <div class="card">
+        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
           <h3 class="font-semibold text-xl mb-3">Phone</h3>
           <a href="tel:+918446556866" class="text-2xl font-medium hover:text-blue-600 transition">+91 84465 56866</a>
         </div>
 
-        <div class="card">
+        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
           <h3 class="font-semibold text-xl mb-3">LinkedIn</h3>
           <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="text-2xl font-medium hover:text-blue-600 transition">Connect on LinkedIn →</a>
         </div>
 
-        <div class="card" style="background:#111; color:white; display:flex; align-items:center; justify-content:center;">
+        <div class="card" style="background:#111; color:white; display:flex; align-items:center; justify-content:center; border-radius:20px; padding:2rem;">
           <a href="contact.html" class="text-2xl font-semibold hover:text-gray-300 transition">Go to full contact page →</a>
         </div>
       </div>
@@ -152,29 +194,91 @@
   </section>
 
   <script>
-    function initSmoothFlip() {
-      const reels = document.querySelectorAll('.reel');
+    let currentIndex = 0;
+    const reels = document.querySelectorAll('.reel');
+    let isFlipping = false;
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.25) {
-            const content = entry.target.querySelector('.reel-content');
-            
-            content.classList.remove('flip-in');
-            void content.offsetWidth;
-            content.classList.add('flip-in');
-          }
-        });
-      }, { 
-        threshold: 0.25,
-        rootMargin: "-8% 0px -8% 0px"
-      });
+    function showReel(newIndex, direction = 'next') {
+      if (isFlipping || newIndex < 0 || newIndex >= reels.length) return;
+      isFlipping = true;
 
-      reels.forEach(reel => observer.observe(reel));
+      const currentReel = reels[currentIndex];
+      const nextReel = reels[newIndex];
+
+      // Start flip out on current
+      currentReel.classList.add(direction === 'next' ? 'flipping-out' : 'flipping-in');
+      currentReel.style.zIndex = '10';
+
+      // Prepare next
+      nextReel.style.display = 'flex';
+      nextReel.style.opacity = '0';
+      nextReel.style.zIndex = '20';
+      nextReel.classList.add(direction === 'next' ? 'flipping-in' : 'flipping-out');
+
+      setTimeout(() => {
+        // Clean up
+        currentReel.classList.remove('active', 'flipping-out', 'flipping-in');
+        currentReel.style.display = 'none';
+        currentReel.style.zIndex = '';
+
+        nextReel.classList.remove('flipping-in', 'flipping-out');
+        nextReel.classList.add('active');
+        nextReel.style.opacity = '1';
+
+        currentIndex = newIndex;
+        isFlipping = false;
+      }, 600);
     }
 
-    window.onload = () => {
-      initSmoothFlip();
+    function handleWheel(e) {
+      if (isFlipping) return;
+      e.preventDefault();
+
+      if (e.deltaY > 0) {
+        // Scroll down → next chapter
+        showReel(currentIndex + 1, 'next');
+      } else {
+        // Scroll up → previous chapter
+        showReel(currentIndex - 1, 'prev');
+      }
+    }
+
+    // Keyboard support
+    function handleKey(e) {
+      if (isFlipping) return;
+      if (e.key === 'ArrowDown' || e.key === ' ') {
+        e.preventDefault();
+        showReel(currentIndex + 1, 'next');
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        showReel(currentIndex - 1, 'prev');
+      }
+    }
+
+    window.onload = function() {
+      // Show first reel
+      reels[0].classList.add('active');
+      reels[0].style.display = 'flex';
+
+      // Add listeners
+      window.addEventListener('wheel', handleWheel, { passive: false });
+      window.addEventListener('keydown', handleKey);
+
+      // Touch support for mobile
+      let touchStartY = 0;
+      window.addEventListener('touchstart', e => {
+        touchStartY = e.changedTouches[0].screenY;
+      });
+      window.addEventListener('touchend', e => {
+        if (isFlipping) return;
+        const touchEndY = e.changedTouches[0].screenY;
+        if (touchEndY < touchStartY - 50) {
+          showReel(currentIndex + 1, 'next');
+        } else if (touchEndY > touchStartY + 50) {
+          showReel(currentIndex - 1, 'prev');
+        }
+      });
     };
   </script>
 </body>
