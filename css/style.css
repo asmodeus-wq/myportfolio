@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -10,13 +10,13 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   background: #ffffff;
   color: #1a1a1a;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
 
 /* Navigation */
@@ -24,9 +24,9 @@ nav {
   border-bottom: 1px solid #f0f0f0;
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  z-index: 50;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  z-index: 100;
 }
 
 .nav-content {
@@ -37,9 +37,9 @@ nav {
 }
 
 .logo {
-  font-weight: 600;
-  font-size: 1.4rem;
-  letter-spacing: -0.5px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.8px;
 }
 
 .nav-links a {
@@ -47,29 +47,30 @@ nav {
   text-decoration: none;
   color: #555;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: all 0.3s;
 }
 
 .nav-links a:hover {
   color: #000;
+  text-decoration: underline;
 }
 
 /* Bento Grid */
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  gap: 1.75rem;
   padding: 3rem 0;
 }
 
 .card {
   background: #fafafa;
   border: 1px solid #e5e5e5;
-  border-radius: 20px;
-  padding: 2rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 24px;
+  padding: 2.25rem;
+  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(40px);
 }
 
 .card.visible {
@@ -78,9 +79,9 @@ nav {
 }
 
 .card:hover {
-  border-color: #d1d1d1;
-  transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05);
+  border-color: #ccc;
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.08);
 }
 
 .large {
@@ -89,48 +90,25 @@ nav {
 }
 
 .profile-img {
-  width: 140px;
-  height: 140px;
+  width: 148px;
+  height: 148px;
   border-radius: 9999px;
   object-fit: cover;
   border: 6px solid #fff;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  box-shadow: 0 15px 30px -10px rgb(0 0 0 / 0.12);
 }
 
-/* Animations */
-.fade-in {
-  animation: fadeInUp 0.8s forwards;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+/* Responsive */
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .large {
+    grid-column: span 1;
+    grid-row: span 1;
   }
-}
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  padding: 14px 28px;
-  border-radius: 9999px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s;
-  border: 1px solid #e5e5e5;
-}
-
-.btn-primary {
-  background: #000;
-  color: #fff;
-  border-color: #000;
-}
-
-.btn-primary:hover {
-  background: #333;
-  transform: scale(1.03);
+  .nav-links a {
+    margin-left: 1rem;
+    font-size: 0.95rem;
+  }
 }
