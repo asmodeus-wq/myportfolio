@@ -27,14 +27,12 @@
       <img src="assets/profile.jpg" alt="Faizan Quazi" class="profile-img mx-auto mb-8">
       <h1 class="font-semibold tracking-tighter mb-3" style="font-size: 3.8rem;">Faizan Quazi</h1>
       <p class="text-3xl text-gray-600 mb-8">User Experience Analyst</p>
-      
       <p class="max-w-md mx-auto text-xl text-gray-600">
         Creating meaningful digital experiences through research and thoughtful design.
       </p>
-
       <div class="mt-14">
         <a href="#reel2" class="inline-flex items-center gap-3 text-lg font-medium hover:text-blue-600 transition">
-          Scroll to continue <i class="fa-solid fa-arrow-down ml-1"></i>
+          Scroll to begin <i class="fa-solid fa-arrow-down"></i>
         </a>
       </div>
     </div>
@@ -155,37 +153,33 @@
   </section>
 
   <script>
-    // Vertical flip animation when entering each reel section
-    function initReelAnimations() {
+    // Whole page vertical flip when entering a new chapter
+    function initPageFlip() {
       const reels = document.querySelectorAll('.reel');
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const cards = entry.target.querySelectorAll('.card');
+          if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+            const content = entry.target.querySelector('.reel-content');
             
-            // Reset and trigger flip animation
-            cards.forEach(card => card.classList.remove('visible'));
+            // Remove previous animation
+            content.style.animation = 'none';
+            void content.offsetWidth; // Trigger reflow
             
-            setTimeout(() => {
-              cards.forEach((card, i) => {
-                setTimeout(() => {
-                  card.classList.add('visible');
-                }, i * 90);
-              });
-            }, 80);
+            // Apply the big page flip
+            content.style.animation = 'pageFlipDown 1s cubic-bezier(0.23, 1.0, 0.32, 1) forwards';
           }
         });
       }, { 
-        threshold: 0.25,
-        rootMargin: "-10% 0px -10% 0px"
+        threshold: [0.3, 0.6],
+        rootMargin: "-5% 0px -5% 0px"
       });
 
       reels.forEach(reel => observer.observe(reel));
     }
 
     window.onload = function() {
-      initReelAnimations();
+      initPageFlip();
     }
   </script>
 </body>
