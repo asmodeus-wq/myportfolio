@@ -160,11 +160,8 @@
           if (entry.isIntersecting && entry.intersectionRatio > 0.25) {
             const content = entry.target.querySelector('.reel-content');
             
-            // Reset animation
             content.classList.remove('flip-in');
             void content.offsetWidth;
-            
-            // Trigger smooth flip
             content.classList.add('flip-in');
           }
         });
