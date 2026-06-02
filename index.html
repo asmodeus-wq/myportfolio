@@ -9,7 +9,6 @@
 </head>
 <body style="scroll-snap-type: y mandatory;">
 
-  <!-- Fixed Navigation -->
   <nav>
     <div class="nav-content">
       <div class="logo">Faizan Quazi</div>
@@ -21,7 +20,7 @@
     </div>
   </nav>
 
-  <!-- REEL 1: Hero -->
+  <!-- REEL 1 -->
   <section class="reel" id="reel1" style="background: #f8f8f8;">
     <div class="reel-content text-center">
       <img src="assets/profile.jpg" alt="Faizan Quazi" class="profile-img mx-auto mb-8">
@@ -38,7 +37,7 @@
     </div>
   </section>
 
-  <!-- REEL 2: About (Chapter 1) -->
+  <!-- REEL 2: About -->
   <section class="reel" id="reel2">
     <div class="reel-content">
       <div class="text-center mb-12">
@@ -76,7 +75,7 @@
     </div>
   </section>
 
-  <!-- REEL 3: Work (Chapter 2) -->
+  <!-- REEL 3: Work -->
   <section class="reel" id="reel3" style="background: #fafafa;">
     <div class="reel-content">
       <div class="text-center mb-12">
@@ -121,7 +120,7 @@
     </div>
   </section>
 
-  <!-- REEL 4: Connect (Chapter 3) -->
+  <!-- REEL 4: Connect -->
   <section class="reel" id="reel4">
     <div class="reel-content text-center">
       <div class="mb-12">
@@ -153,34 +152,33 @@
   </section>
 
   <script>
-    // Whole page vertical flip when entering a new chapter
-    function initPageFlip() {
+    function initSmoothFlip() {
       const reels = document.querySelectorAll('.reel');
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.25) {
             const content = entry.target.querySelector('.reel-content');
             
-            // Remove previous animation
-            content.style.animation = 'none';
-            void content.offsetWidth; // Trigger reflow
+            // Reset animation
+            content.classList.remove('flip-in');
+            void content.offsetWidth;
             
-            // Apply the big page flip
-            content.style.animation = 'pageFlipDown 1s cubic-bezier(0.23, 1.0, 0.32, 1) forwards';
+            // Trigger smooth flip
+            content.classList.add('flip-in');
           }
         });
       }, { 
-        threshold: [0.3, 0.6],
-        rootMargin: "-5% 0px -5% 0px"
+        threshold: 0.25,
+        rootMargin: "-8% 0px -8% 0px"
       });
 
       reels.forEach(reel => observer.observe(reel));
     }
 
-    window.onload = function() {
-      initPageFlip();
-    }
+    window.onload = () => {
+      initSmoothFlip();
+    };
   </script>
 </body>
 </html>
