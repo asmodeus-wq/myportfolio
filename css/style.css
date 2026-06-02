@@ -13,7 +13,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* === FULL PAGE REELS WITH SNAP SCROLLING === */
+/* === REEL SECTIONS === */
 .reel {
   min-height: 100dvh;
   scroll-snap-align: start;
@@ -23,7 +23,7 @@ body {
   align-items: center;
   padding: 3rem 0;
   overflow: hidden;
-  perspective: 1400px; /* 3D perspective for flip */
+  perspective: 1200px;
 }
 
 .reel-content {
@@ -31,20 +31,19 @@ body {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
-  transition: transform 0.9s cubic-bezier(0.23, 1.0, 0.32, 1), 
-              opacity 0.6s ease;
-  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
-/* Vertical page flip animation for the whole section */
-.reel.page-flip .reel-content {
-  animation: pageFlipDown 1s cubic-bezier(0.23, 1.0, 0.32, 1) forwards;
+/* Smooth whole-page vertical flip */
+.reel-content.flip-in {
+  animation: smoothPageFlip 0.85s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
-@keyframes pageFlipDown {
+@keyframes smoothPageFlip {
   from {
     opacity: 0;
-    transform: rotateX(65deg) translateY(80px);
+    transform: rotateX(28deg) translateY(60px);
   }
   to {
     opacity: 1;
@@ -109,7 +108,7 @@ nav {
   box-shadow: 0 15px 30px -10px rgb(0 0 0 / 0.12);
 }
 
-/* Responsive - Phone & Laptop */
+/* Responsive */
 @media (max-width: 768px) {
   .bento-grid { grid-template-columns: 1fr; }
   .large { grid-column: span 1; }
@@ -117,10 +116,4 @@ nav {
   .reel-content { padding: 0 1.25rem; }
   .reel h1 { font-size: 2.6rem !important; }
   .reel h2 { font-size: 2.1rem !important; }
-}
-
-@media (min-width: 1024px) {
-  .reel-content {
-    max-width: 1050px;
-  }
 }
