@@ -7,156 +7,127 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
-    body {
-      overflow: hidden;
-    }
+    body { overflow: hidden; }
     .reel {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100dvh;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      background: #fff;
-      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease;
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
+      position: absolute; top: 0; left: 0; width: 100%; height: 100dvh;
+      display: none; align-items: center; justify-content: center;
+      padding: 2rem; background: #fff;
+      transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.45s ease;
+      transform-style: preserve-3d; backface-visibility: hidden;
     }
-    .reel.active {
-      display: flex;
-    }
-    .reel.flipping-out {
-      animation: flipOut 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-      z-index: 10;
-    }
-    .reel.flipping-in {
-      animation: flipIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-      z-index: 20;
-    }
-    @keyframes flipOut {
-      from { transform: rotateX(0deg) translateY(0); opacity: 1; }
-      to { transform: rotateX(-55deg) translateY(-80px); opacity: 0; }
-    }
-    @keyframes flipIn {
-      from { transform: rotateX(55deg) translateY(80px); opacity: 0; }
-      to { transform: rotateX(0deg) translateY(0); opacity: 1; }
-    }
-    .reel-content {
-      width: 100%;
-      max-width: 1100px;
-      padding: 0 2rem;
-    }
+    .reel.active { display: flex; }
+    .reel.flipping-out { animation: flipOut 0.55s cubic-bezier(0.23, 1, 0.32, 1) forwards; z-index: 10; }
+    .reel.flipping-in { animation: flipIn 0.55s cubic-bezier(0.23, 1, 0.32, 1) forwards; z-index: 20; }
+    @keyframes flipOut { from { transform: rotateX(0deg) translateY(0); opacity: 1; } to { transform: rotateX(-50deg) translateY(-60px); opacity: 0; } }
+    @keyframes flipIn { from { transform: rotateX(50deg) translateY(60px); opacity: 0; } to { transform: rotateX(0deg) translateY(0); opacity: 1; } }
+    .reel-content { width: 100%; max-width: 1100px; padding: 0 2rem; }
+    @media (max-width: 768px) { .reel { padding: 1.25rem; } .reel-content { padding: 0 1rem; } }
   </style>
 </head>
 <body>
 
-  <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid #f0f0f0;">
-    <div class="nav-content" style="max-width: 1100px; margin: 0 auto; padding: 1.1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
-      <div class="logo">Faizan Quazi</div>
-      <div class="nav-links">
-        <a href="about.html">About</a>
-        <a href="projects.html">Work</a>
-        <a href="contact.html">Contact</a>
+  <nav style="position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(12px); border-bottom:1px solid #f0f0f0;">
+    <div style="max-width:1100px; margin:0 auto; padding:1rem 1.5rem; display:flex; justify-content:space-between; align-items:center;">
+      <div style="font-weight:700; font-size:1.3rem;">Faizan Quazi</div>
+      <div>
+        <a href="about.html" style="margin-left:1.5rem; text-decoration:none; color:#555; font-weight:500;">About</a>
+        <a href="projects.html" style="margin-left:1.5rem; text-decoration:none; color:#555; font-weight:500;">Work</a>
+        <a href="contact.html" style="margin-left:1.5rem; text-decoration:none; color:#555; font-weight:500;">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- REEL 1: Hero -->
-  <section class="reel active" id="reel1" style="background: #f8f8f8;">
+  <section class="reel active" id="reel1" style="background:#f8f8f8;">
     <div class="reel-content text-center">
-      <img src="assets/profile.jpg" alt="Faizan Quazi" class="profile-img mx-auto mb-8" style="width:130px; height:130px; border-radius:9999px; object-fit:cover; border:6px solid #fff; box-shadow:0 15px 30px -10px rgb(0 0 0 / 0.12);">
-      <h1 class="font-semibold tracking-tighter mb-3" style="font-size: 3.8rem;">Faizan Quazi</h1>
-      <p class="text-3xl text-gray-600 mb-8">User Experience Analyst</p>
-      <p class="max-w-md mx-auto text-xl text-gray-600">
+      <img src="assets/profile.jpg" alt="Faizan Quazi" style="width:120px; height:120px; border-radius:9999px; object-fit:cover; border:6px solid #fff; box-shadow:0 15px 30px -10px rgb(0 0 0 / 0.12); margin-bottom:2rem;">
+      <h1 style="font-size:3.2rem; font-weight:700; letter-spacing:-1px; margin-bottom:0.5rem;">Faizan Quazi</h1>
+      <p style="font-size:1.6rem; color:#666; margin-bottom:1.5rem;">User Experience Analyst</p>
+      <p style="max-width:420px; margin:0 auto 2rem; font-size:1.1rem; color:#555; line-height:1.6;">
         Creating meaningful digital experiences through research and thoughtful design.
       </p>
-      <div class="mt-14">
-        <p style="color:#888; font-size:0.95rem;">Scroll to flip to next chapter ↓</p>
-      </div>
+      <p style="color:#999; font-size:0.9rem; margin-top:3rem;">Scroll or swipe to flip chapters ↓</p>
     </div>
   </section>
 
   <!-- REEL 2: About -->
   <section class="reel" id="reel2">
     <div class="reel-content">
-      <div class="text-center mb-12">
-        <span class="uppercase tracking-[3px] text-xs text-gray-500">CHAPTER 01 — ABOUT</span>
-        <h2 class="font-semibold mt-3" style="font-size: 2.6rem;">Who I am</h2>
+      <div style="text-align:center; margin-bottom:2.5rem;">
+        <span style="font-size:0.75rem; letter-spacing:2px; color:#888; text-transform:uppercase;">CHAPTER 01 — ABOUT</span>
+        <h2 style="font-size:2.3rem; font-weight:700; margin-top:0.5rem;">Who I am</h2>
       </div>
 
-      <div class="bento-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem;">
         <div class="card large" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem; grid-column:span 2;">
-          <h3 class="text-3xl font-semibold leading-tight mb-6">8+ years of experience in user-centered design and research.</h3>
-          <p class="text-lg text-gray-600">Currently improving B2B usability across HCL Commerce platforms.</p>
+          <h3 style="font-size:1.65rem; font-weight:600; line-height:1.3; margin-bottom:1.25rem;">8+ years of experience in user-centered design and research.</h3>
+          <p style="font-size:1.05rem; color:#555; line-height:1.65;">Currently improving B2B usability across HCL Commerce platforms.</p>
         </div>
 
         <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
-          <h4 class="font-semibold mb-4 text-lg">Core Expertise</h4>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-4 py-1 bg-white border rounded-full text-sm">User Research</span>
-            <span class="px-4 py-1 bg-white border rounded-full text-sm">Information Architecture</span>
-            <span class="px-4 py-1 bg-white border rounded-full text-sm">Wireframing</span>
-            <span class="px-4 py-1 bg-white border rounded-full text-sm">Prototyping</span>
-            <span class="px-4 py-1 bg-white border rounded-full text-sm">Usability Testing</span>
+          <h4 style="font-weight:600; margin-bottom:1rem; font-size:1.1rem;">Core Expertise</h4>
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+            <span style="font-size:0.9rem; padding:0.4rem 0.9rem; background:white; border:1px solid #ddd; border-radius:999px;">User Research</span>
+            <span style="font-size:0.9rem; padding:0.4rem 0.9rem; background:white; border:1px solid #ddd; border-radius:999px;">Information Architecture</span>
+            <span style="font-size:0.9rem; padding:0.4rem 0.9rem; background:white; border:1px solid #ddd; border-radius:999px;">Wireframing</span>
+            <span style="font-size:0.9rem; padding:0.4rem 0.9rem; background:white; border:1px solid #ddd; border-radius:999px;">Prototyping</span>
+            <span style="font-size:0.9rem; padding:0.4rem 0.9rem; background:white; border:1px solid #ddd; border-radius:999px;">Usability Testing</span>
           </div>
         </div>
 
         <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
-          <h4 class="font-semibold mb-4 text-lg">Education</h4>
-          <div class="space-y-4 text-sm">
+          <h4 style="font-weight:600; margin-bottom:1rem; font-size:1.1rem;">Education</h4>
+          <div style="font-size:0.95rem; line-height:1.7; color:#444;">
             <div><strong>Bachelor of Arts</strong> — 2023</div>
             <div><strong>UX Certificate</strong> — Felix Institute (2017)</div>
             <div><strong>Diploma in Journalism &amp; Mass Media</strong> — 2016</div>
           </div>
-          <a href="about.html" class="mt-6 inline-block text-sm font-medium hover:text-blue-600">Read full about →</a>
+          <a href="about.html" style="display:inline-block; margin-top:1.25rem; font-size:0.95rem; font-weight:500; color:#222;">Read full about →</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- REEL 3: Work -->
-  <section class="reel" id="reel3" style="background: #fafafa;">
+  <section class="reel" id="reel3" style="background:#fafafa;">
     <div class="reel-content">
-      <div class="text-center mb-12">
-        <span class="uppercase tracking-[3px] text-xs text-gray-500">CHAPTER 02 — WORK</span>
-        <h2 class="font-semibold mt-3" style="font-size: 2.6rem;">Experience</h2>
+      <div style="text-align:center; margin-bottom:2.5rem;">
+        <span style="font-size:0.75rem; letter-spacing:2px; color:#888; text-transform:uppercase;">CHAPTER 02 — WORK</span>
+        <h2 style="font-size:2.3rem; font-weight:700; margin-top:0.5rem;">Experience</h2>
       </div>
 
-      <div class="bento-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem;">
         <div class="card large" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem; grid-column:span 2;">
-          <div class="flex justify-between items-start mb-5">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.5rem;">
             <div>
-              <h3 class="text-2xl font-semibold">User Experience Analyst</h3>
-              <p class="text-gray-600">HCL Software (Commerce)</p>
+              <h3 style="font-size:1.45rem; font-weight:600;">User Experience Analyst</h3>
+              <p style="color:#555; margin-top:0.25rem;">HCL Software (Commerce)</p>
             </div>
-            <span class="text-sm text-gray-500 whitespace-nowrap">Dec 2022 — Present</span>
+            <span style="font-size:0.85rem; color:#888; white-space:nowrap;">Dec 2022 — Present</span>
           </div>
-          <p class="text-gray-600">Leading B2B usability improvements across the HCL Commerce software suite.</p>
+          <p style="color:#555; line-height:1.6;">Leading B2B usability improvements across the HCL Commerce software suite.</p>
         </div>
 
         <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
-          <h3 class="font-semibold mb-1">Sr. Product Designer / Researcher</h3>
-          <p class="text-gray-600 text-sm mb-3">Cybage Softwares • May 2021 – Dec 2022</p>
-          <p class="text-sm text-gray-500">User interviews, research, personas, wireframes, prototypes &amp; usability testing.</p>
+          <h3 style="font-weight:600; margin-bottom:0.35rem; font-size:1.15rem;">Sr. Product Designer / Researcher</h3>
+          <p style="color:#666; font-size:0.9rem; margin-bottom:0.6rem;">Cybage Softwares • May 2021 – Dec 2022</p>
+          <p style="font-size:0.95rem; color:#555; line-height:1.55;">User interviews, research, personas, wireframes, prototypes &amp; usability testing.</p>
         </div>
 
         <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
-          <h3 class="font-semibold mb-1">User Experience Designer</h3>
-          <p class="text-gray-600 text-sm mb-3">HCL Software (UNICA) • 2018 – 2021</p>
-          <p class="text-sm text-gray-500">Marketing automation platform. Research, IA, card sorting &amp; design annotations.</p>
+          <h3 style="font-weight:600; margin-bottom:0.35rem; font-size:1.15rem;">User Experience Designer</h3>
+          <p style="color:#666; font-size:0.9rem; margin-bottom:0.6rem;">HCL Software (UNICA) • 2018 – 2021</p>
+          <p style="font-size:0.95rem; color:#555; line-height:1.55;">Marketing automation platform. Research, IA, card sorting &amp; design annotations.</p>
         </div>
 
         <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
-          <h3 class="font-semibold mb-1">UI/UX Designer</h3>
-          <p class="text-gray-600 text-sm mb-3">BrightBrain Technologies • 2018</p>
-          <p class="text-sm text-gray-500">User research, task flows, concept testing &amp; client pitching.</p>
+          <h3 style="font-weight:600; margin-bottom:0.35rem; font-size:1.15rem;">UI/UX Designer</h3>
+          <p style="color:#666; font-size:0.9rem; margin-bottom:0.6rem;">BrightBrain Technologies • 2018</p>
+          <p style="font-size:0.95rem; color:#555; line-height:1.55;">User research, task flows, concept testing &amp; client pitching.</p>
         </div>
 
         <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem; display:flex; align-items:center; justify-content:center; text-align:center;">
-          <a href="projects.html" class="text-xl font-semibold hover:text-blue-600 transition">View complete work history →</a>
+          <a href="projects.html" style="font-size:1.1rem; font-weight:600; color:#222;">View complete work history →</a>
         </div>
       </div>
     </div>
@@ -165,29 +136,29 @@
   <!-- REEL 4: Connect -->
   <section class="reel" id="reel4">
     <div class="reel-content text-center">
-      <div class="mb-12">
-        <span class="uppercase tracking-[3px] text-xs text-gray-500">CHAPTER 03 — CONNECT</span>
-        <h2 class="font-semibold mt-3" style="font-size: 2.6rem;">Let’s talk</h2>
+      <div style="margin-bottom:2.5rem;">
+        <span style="font-size:0.75rem; letter-spacing:2px; color:#888; text-transform:uppercase;">CHAPTER 03 — CONNECT</span>
+        <h2 style="font-size:2.3rem; font-weight:700; margin-top:0.5rem;">Let’s talk</h2>
       </div>
 
-      <div class="bento-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; max-width:900px; margin:0 auto;">
-        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
-          <h3 class="font-semibold text-xl mb-3">Email</h3>
-          <a href="mailto:faizanquazi123@gmail.com" class="text-2xl font-medium hover:text-blue-600 transition">faizanquazi123@gmail.com</a>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; max-width:900px; margin:0 auto;">
+        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem; text-align:left;">
+          <h3 style="font-weight:600; font-size:1.15rem; margin-bottom:0.75rem;">Email</h3>
+          <a href="mailto:faizanquazi123@gmail.com" style="font-size:1.25rem; font-weight:600; color:#222; word-break:break-all;">faizanquazi123@gmail.com</a>
         </div>
 
-        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
-          <h3 class="font-semibold text-xl mb-3">Phone</h3>
-          <a href="tel:+918446556866" class="text-2xl font-medium hover:text-blue-600 transition">+91 84465 56866</a>
+        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem; text-align:left;">
+          <h3 style="font-weight:600; font-size:1.15rem; margin-bottom:0.75rem;">Phone</h3>
+          <a href="tel:+918446556866" style="font-size:1.25rem; font-weight:600; color:#222;">+91 84465 56866</a>
         </div>
 
-        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem;">
-          <h3 class="font-semibold text-xl mb-3">LinkedIn</h3>
-          <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="text-2xl font-medium hover:text-blue-600 transition">Connect on LinkedIn →</a>
+        <div class="card" style="background:#fafafa; border:1px solid #e5e5e5; border-radius:20px; padding:2rem; text-align:left;">
+          <h3 style="font-weight:600; font-size:1.15rem; margin-bottom:0.75rem;">LinkedIn</h3>
+          <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" style="font-size:1.25rem; font-weight:600; color:#222;">Connect on LinkedIn →</a>
         </div>
 
-        <div class="card" style="background:#111; color:white; display:flex; align-items:center; justify-content:center; border-radius:20px; padding:2rem;">
-          <a href="contact.html" class="text-2xl font-semibold hover:text-gray-300 transition">Go to full contact page →</a>
+        <div class="card" style="background:#111; color:white; border-radius:20px; padding:2rem; display:flex; align-items:center; justify-content:center; text-align:center;">
+          <a href="contact.html" style="font-size:1.25rem; font-weight:600; color:white;">Go to full contact page →</a>
         </div>
       </div>
     </div>
@@ -205,18 +176,15 @@
       const currentReel = reels[currentIndex];
       const nextReel = reels[newIndex];
 
-      // Start flip out on current
       currentReel.classList.add(direction === 'next' ? 'flipping-out' : 'flipping-in');
       currentReel.style.zIndex = '10';
 
-      // Prepare next
       nextReel.style.display = 'flex';
       nextReel.style.opacity = '0';
       nextReel.style.zIndex = '20';
       nextReel.classList.add(direction === 'next' ? 'flipping-in' : 'flipping-out');
 
       setTimeout(() => {
-        // Clean up
         currentReel.classList.remove('active', 'flipping-out', 'flipping-in');
         currentReel.style.display = 'none';
         currentReel.style.zIndex = '';
@@ -227,57 +195,37 @@
 
         currentIndex = newIndex;
         isFlipping = false;
-      }, 600);
+      }, 550);
     }
 
     function handleWheel(e) {
       if (isFlipping) return;
       e.preventDefault();
-
-      if (e.deltaY > 0) {
-        // Scroll down → next chapter
-        showReel(currentIndex + 1, 'next');
-      } else {
-        // Scroll up → previous chapter
-        showReel(currentIndex - 1, 'prev');
-      }
+      if (e.deltaY > 0) showReel(currentIndex + 1, 'next');
+      else showReel(currentIndex - 1, 'prev');
     }
 
-    // Keyboard support
     function handleKey(e) {
       if (isFlipping) return;
-      if (e.key === 'ArrowDown' || e.key === ' ') {
-        e.preventDefault();
-        showReel(currentIndex + 1, 'next');
-      }
-      if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        showReel(currentIndex - 1, 'prev');
-      }
+      if (e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); showReel(currentIndex + 1, 'next'); }
+      if (e.key === 'ArrowUp') { e.preventDefault(); showReel(currentIndex - 1, 'prev'); }
     }
 
     window.onload = function() {
-      // Show first reel
       reels[0].classList.add('active');
       reels[0].style.display = 'flex';
 
-      // Add listeners
       window.addEventListener('wheel', handleWheel, { passive: false });
       window.addEventListener('keydown', handleKey);
 
-      // Touch support for mobile
+      // Touch swipe
       let touchStartY = 0;
-      window.addEventListener('touchstart', e => {
-        touchStartY = e.changedTouches[0].screenY;
-      });
+      window.addEventListener('touchstart', e => { touchStartY = e.changedTouches[0].screenY; });
       window.addEventListener('touchend', e => {
         if (isFlipping) return;
-        const touchEndY = e.changedTouches[0].screenY;
-        if (touchEndY < touchStartY - 50) {
-          showReel(currentIndex + 1, 'next');
-        } else if (touchEndY > touchStartY + 50) {
-          showReel(currentIndex - 1, 'prev');
-        }
+        const dy = e.changedTouches[0].screenY - touchStartY;
+        if (dy < -50) showReel(currentIndex + 1, 'next');
+        else if (dy > 50) showReel(currentIndex - 1, 'prev');
       });
     };
   </script>
