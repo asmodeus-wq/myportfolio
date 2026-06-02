@@ -49,7 +49,13 @@
       border: 1px solid #e5e5e5;
       border-radius: 20px;
       padding: 2rem;
-      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .card:hover {
       border-color: #ccc;
@@ -57,6 +63,16 @@
       box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.06);
     }
     .large { grid-column: span 2; }
+
+    .section-header {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .section-header.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     @media (max-width: 768px) {
       .section { padding: 3rem 1.25rem; min-height: 100dvh; }
@@ -85,7 +101,6 @@
   <!-- Hero / Chapter 1 with Video -->
   <section class="section hero" id="hero">
     <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem; text-align: center;">
-      <!-- Video - 16:9 on PC -->
       <div class="hero-video">
         <video autoplay loop muted playsinline>
           <source src="https://assets.mixkit.co/videos/preview/1009/1009-small.mp4" type="video/mp4">
@@ -110,7 +125,7 @@
   <!-- About Section -->
   <section class="section" id="about" style="background: #fff;">
     <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-      <div style="text-align: center; margin-bottom: 3rem;">
+      <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
         <span style="font-size: 0.75rem; letter-spacing: 2px; color: #888; text-transform: uppercase;">CHAPTER 01 — ABOUT</span>
         <h2 style="font-size: 2.5rem; font-weight: 700; margin-top: 0.5rem;">Who I am</h2>
       </div>
@@ -148,7 +163,7 @@
   <!-- Work Section -->
   <section class="section" id="work" style="background: #fafafa;">
     <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-      <div style="text-align: center; margin-bottom: 3rem;">
+      <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
         <span style="font-size: 0.75rem; letter-spacing: 2px; color: #888; text-transform: uppercase;">CHAPTER 02 — WORK</span>
         <h2 style="font-size: 2.5rem; font-weight: 700; margin-top: 0.5rem;">Experience</h2>
       </div>
@@ -193,7 +208,7 @@
   <!-- Connect Section -->
   <section class="section" id="connect">
     <div style="max-width: 900px; margin: 0 auto; padding: 0 2rem; text-align: center;">
-      <div style="margin-bottom: 3rem;">
+      <div class="section-header" style="margin-bottom: 3rem;">
         <span style="font-size: 0.75rem; letter-spacing: 2px; color: #888; text-transform: uppercase;">CHAPTER 03 — CONNECT</span>
         <h2 style="font-size: 2.5rem; font-weight: 700; margin-top: 0.5rem;">Let’s talk</h2>
       </div>
@@ -221,5 +236,36 @@
     </div>
   </section>
 
+  <script>
+    // Subtle scroll animations for cards and section headers
+    function initScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            const cards = entry.target.querySelectorAll('.card');
+            const header = entry.target.querySelector('.section-header');
+
+            if (header) {
+              setTimeout(() => header.classList.add('visible'), 100);
+            }
+
+            cards.forEach((card, i) => {
+              setTimeout(() => {
+                card.classList.add('visible');
+              }, 150 + (i * 120));
+            });
+          }
+        });
+      }, { threshold: 0.2 });
+
+      document.querySelectorAll('.section').forEach(section => {
+        observer.observe(section);
+      });
+    }
+
+    window.onload = function() {
+      initScrollAnimations();
+    };
+  </script>
 </body>
 </html>
